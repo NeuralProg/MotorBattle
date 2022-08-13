@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     GameObject wallPrefab;
     Vector2 lastPos;
     Collider2D lastWallCol;
+    GameObject explosion;
 
     //base functions
     void Start()
@@ -29,6 +30,14 @@ public class Player : MonoBehaviour
         SetLastWallSize(lastWallCol, lastPos, transform.position);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision != lastWallCol)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+    }
 
     //custom functions
     void HandleKeys()
