@@ -13,7 +13,9 @@ public class Player : MonoBehaviour
     GameObject wallPrefab;
     Vector2 lastPos;
     Collider2D lastWallCol;
-    GameObject explosion;
+    public GameObject explosion;
+
+    bool canBoost = true;
 
     //base functions
     void Start()
@@ -74,8 +76,22 @@ public class Player : MonoBehaviour
                 CreateWall();
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(canBoost)
+                StartCoroutine("ActivateBoost");
+        }
 
-        rb.velocity = direction * moveSpeed;
+            rb.velocity = direction * moveSpeed;
+    }
+
+    IEnumerator ActivateBoost()
+    {
+        canBoost = false;
+        moveSpeed += 4;
+        yield return new WaitForSeconds(3);
+        moveSpeed -= 4;
+        
     }
 
     void CreateWall()
