@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
         moveSpeed += 4;
         yield return new WaitForSeconds(3);
         moveSpeed -= 4;
-        
     }
 
     void CreateWall()
