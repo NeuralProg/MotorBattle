@@ -14,12 +14,18 @@ public class Player : MonoBehaviour
     Vector2 lastPos;
     Collider2D lastWallCol;
     public GameObject explosion;
+    Cam cam;
 
     public int playerNum;
-
     bool canBoost = true;
 
+
     //base functions
+    private void Awake()
+    {
+        cam = Camera.main.GetComponent<Cam>();
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,10 +44,12 @@ public class Player : MonoBehaviour
     {
         if(collision != lastWallCol)
         {
+            cam.PlayBoomFX();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
+
 
     //custom functions
     void HandleKeys()
