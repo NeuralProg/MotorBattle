@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     Collider2D lastWallCol;
     public GameObject explosion;
 
+    public int playerNum;
+
     bool canBoost = true;
 
     //base functions
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour
     //custom functions
     void HandleKeys()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetButtonDown(("P"+ playerNum +"up")))
         {
             if(direction != Vector2.down)
             {
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
                 CreateWall();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetButtonDown(("P" + playerNum + "down")))
         {
             if (direction != Vector2.up)
             {
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
                 CreateWall();
             } 
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetButtonDown(("P" + playerNum + "right")))
         {
             if (direction != Vector2.left)
             {
@@ -68,7 +70,7 @@ public class Player : MonoBehaviour
                 CreateWall();
             }  
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetButtonDown(("P" + playerNum + "left")))
         {
             if (direction != Vector2.right)
             {
@@ -76,7 +78,7 @@ public class Player : MonoBehaviour
                 CreateWall();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetButtonDown(("P" + playerNum + "boost")))
         {
             if(canBoost)
                 StartCoroutine("ActivateBoost");
