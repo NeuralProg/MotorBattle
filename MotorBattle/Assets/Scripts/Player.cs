@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
     {
         canBoost = false;
         moveSpeed += 4;
+        print("boost"+playerNum);
         yield return new WaitForSeconds(3);
         moveSpeed -= 4;
     }
