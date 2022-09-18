@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 519420033}
   - component: {fileID: 519420036}
   - component: {fileID: 519420037}
+  - component: {fileID: 519420038}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -293,8 +294,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.05078, y: -0.09449269, z: -51}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.5, y: -0.3, z: -51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,7 +391,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.098
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -487,6 +488,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boomFX: {fileID: 8300000, guid: 0c94fb14c4e101047bb829bdd21bc4cd, type: 3}
+--- !u!95 &519420038
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20307c32053314f1f8d4aa1bef73f2df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &894505688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2853144844241930644, guid: f2939756dac5e024f829e1ec40f554b9, type: 3}
@@ -564,6 +585,10 @@ PrefabInstance:
       propertyPath: playerNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3257507439384584964, guid: 23d01f1f9a6202642a1837de077794e5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2c311f6e22d1d84f87088d436d76f93, type: 3}
     - target: {fileID: 3257507439384584965, guid: 23d01f1f9a6202642a1837de077794e5, type: 3}
       propertyPath: m_RootOrder
       value: 1
