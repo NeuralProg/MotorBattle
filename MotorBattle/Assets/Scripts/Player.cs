@@ -15,14 +15,18 @@ public class Player : MonoBehaviour
     Collider2D lastWallCol;
     public GameObject explosion;
     Cam cam;
+    GameManager gm;
 
     public int playerNum;
     bool canBoost = true;
+    [HideInInspector]
+    public bool isAlive;
 
 
     //base functions
     private void Awake()
     {
+        gm = GameObject.Find("GameManage").GetComponent<GameManager>();
         cam = Camera.main.GetComponent<Cam>();
     }
 
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
     {
         if(collision != lastWallCol)
         {
+            isAlive = false;
+            gm.KillPlayer();
             cam.PlayBoomFX();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
@@ -92,7 +98,7 @@ public class Player : MonoBehaviour
                 StartCoroutine("ActivateBoost");
         }
 
-            rb.velocity = direction * moveSpeed;
+            rb.velocity = direction * moveSpeed * gm.gameSpeed;
     }
 
     IEnumerator ActivateBoost()
