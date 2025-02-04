@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
                 StartCoroutine("ActivateBoost");
         }
 
-            rb.velocity = direction * moveSpeed * gm.gameSpeed;
+            rb.linearVelocity = direction * moveSpeed * gm.gameSpeed;
     }
 
     IEnumerator ActivateBoost()
